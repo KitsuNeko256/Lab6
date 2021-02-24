@@ -145,9 +145,11 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Report.cpp" />
     <ClCompile Include="ReportList.cpp" />
+    <ClCompile Include="SprintDraft.cpp" />
     <ClCompile Include="SprintReport.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="TaskList.cpp" />
+    <ClCompile Include="TeamleadWrapper.cpp" />
     <ClCompile Include="TimedPost.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
@@ -157,9 +159,11 @@
     <ClInclude Include="General.h" />
     <ClInclude Include="Report.h" />
     <ClInclude Include="ReportList.h" />
+    <ClInclude Include="SprintDraft.h" />
     <ClInclude Include="SprintReport.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="TaskList.h" />
+    <ClInclude Include="TeamleadWrapper.h" />
     <ClInclude Include="TimedPost.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>

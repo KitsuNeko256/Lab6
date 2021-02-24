@@ -45,6 +45,12 @@
     <ClCompile Include="ReportList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TeamleadWrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SprintDraft.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="SprintReport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,10 +80,16 @@
     <ClInclude Include="UI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SprintReport.h">
+    <ClInclude Include="ReportList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ReportList.h">
+    <ClInclude Include="TeamleadWrapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SprintDraft.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SprintReport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

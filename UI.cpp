@@ -177,7 +177,7 @@ void UI::changeTask() {
 				if (status == 3 && task->getEmployeeID() >= 0) {
 					Employee* employee = employeeList->getEmployee(task->getEmployeeID());
 					employee->getDailyReport()->addTask(taskID);
-					employee->getSprintReport()->addTask(taskID);
+					employee->getSprintDraft()->addTask(taskID);
 					std::cout << "Added resolved task to report!\n";
 				}
 			}
@@ -375,9 +375,9 @@ void UI::dailyReport() {
 	system("pause");
 	return;
 }
-void UI::sprintReport() {
+void UI::sprintDraft() {
 	Employee* employee = employeeList->getEmployee(userID);
-	SprintReport* report = employee->getSprintReport();
+	SprintDraft* report = employee->getSprintDraft();
 
 	std::string input;
 
@@ -403,9 +403,9 @@ void UI::sprintReport() {
 		std::cout << report->getText() << std::endl;
 	}
 	else if (input == "3") {
-		const std::vector<SprintReport*>& subordinateReports = employee->getSprintReport()->getSubordinateReports();
+		const std::vector<SprintDraft*>& subordinateReports = employee->getSprintDraft()->getSubordinateReports();
 		for (size_t i = subordinateReports.size(); i > 0; --i) {
-			SprintReport* t = subordinateReports[i - 1];
+			SprintDraft* t = subordinateReports[i - 1];
 			std::cout << t->getAuthorID() << std::endl;
 			std::cout << "Resolved tasks: ";
 			for (auto id : t->getTasks())
@@ -433,8 +433,8 @@ void UI::sprintReport() {
 		reportList->addSprintReport(report);
 		Employee* manager = employee->getManager();
 		if (manager != nullptr)
-			manager->getSprintReport()->addSubordinateReport(report);
-		employee->startNewSprintReport();
+			manager->getSprintDraft()->addSubordinateReport(report);
+		employee->startNewSprintDraft();
 	}
 
 	system("pause");
@@ -478,9 +478,9 @@ void UI::submittedReports() {
 		}
 	}
 	if (input == "2") {
-		const std::vector<SprintReport*>& reports = reportList->getSprintReports();
+		const std::vector<SprintDraft*>& reports = reportList->getSprintReports();
 		for (size_t i = reports.size(); i > 0; --i) {
-			SprintReport* t = reports[i - 1];
+			SprintDraft* t = reports[i - 1];
 			std::cout << t->getAuthorID() << std::endl;
 			std::cout << "Resolved tasks: ";
 			for (auto id : t->getTasks())
@@ -529,7 +529,7 @@ void UI::reportMenu() {
 		if (input == "1")
 			dailyReport();
 		else if (input == "2")
-			sprintReport();
+			sprintDraft();
 		else if (input == "3")
 			submittedReports();
 		else if (input == "e")

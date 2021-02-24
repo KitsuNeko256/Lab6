@@ -27,7 +27,7 @@ class UI {
 	void taskMenu();
 
 	void dailyReport();
-	void sprintReport();
+	void sprintDraft();
 	void submittedReports();
 
 	void reportMenu();

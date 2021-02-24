@@ -23,7 +23,7 @@ std::vector<size_t> Employee::getAllSubordinatesID(Employee* cur) {
 }
 
 Employee::Employee(size_t _ID, std::string _name, Employee* _manager) :
-	ID(_ID), name(_name), manager(_manager), dailyReport(new Report(ID)), sprintReport(new SprintReport(ID))
+	ID(_ID), name(_name), manager(_manager), dailyReport(new Report(ID)), sprintDraft(new SprintDraft(ID))
 {
 	if (manager != nullptr)
 		manager->addSubordinate(this);
@@ -48,8 +48,8 @@ void Employee::setManager(Employee* newManager) {
 void Employee::startNewDailyReport() {
 	dailyReport = new Report(ID);
 }
-void Employee::startNewSprintReport() {
-	sprintReport = new SprintReport(ID);
+void Employee::startNewSprintDraft() {
+	sprintDraft = new SprintDraft(ID);
 }
 
 size_t Employee::getID() {
@@ -67,8 +67,8 @@ const std::vector<Employee*>& Employee::getSubordinates() {
 Report* Employee::getDailyReport() {
 	return dailyReport;
 }
-SprintReport* Employee::getSprintReport() {
-	return sprintReport;
+SprintDraft* Employee::getSprintDraft() {
+	return sprintDraft;
 }
 std::vector<size_t> Employee::getAllSubordinatesID() {
 	if (subordinates.size() == 0)

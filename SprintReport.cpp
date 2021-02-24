@@ -1,11 +1,11 @@
 #include "SprintReport.h"
 
-SprintReport::SprintReport(size_t _authorID) : 
-	Report(_authorID) 
+SprintReport::SprintReport(size_t _authorID) :
+	SprintDraft(_authorID)
 { }
-void SprintReport::addSubordinateReport(SprintReport* report) {
-	subordinateReports.push_back(report);
-}
-const std::vector<SprintReport*>& SprintReport::getSubordinateReports() {
-	return subordinateReports;
+bool SprintReport::getDraftStatus(size_t draftAuthorID) {
+	for (auto t : getSubordinateReports())
+		if (t->getAuthorID() == draftAuthorID)
+			return true;
+	return false;
 }

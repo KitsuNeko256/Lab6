@@ -1,6 +1,6 @@
 #pragma once
 #include "Task.h"
-#include "SprintReport.h"
+#include "SprintDraft.h"
 
 class Employee {
 	size_t ID;
@@ -9,7 +9,7 @@ class Employee {
 	std::vector<Employee*> subordinates;
 
 	Report* dailyReport;
-	SprintReport* sprintReport;
+	SprintDraft* sprintDraft;
 
 	void addSubordinate(Employee* subordinate);
 	void removeSubordinate(Employee* subordinate);
@@ -21,13 +21,13 @@ public:
 
 	void setManager(Employee* newManager);
 	void startNewDailyReport();
-	void startNewSprintReport();
+	void startNewSprintDraft();
 
 	size_t getID();
 	const std::string& getName();
 	Employee* getManager();
 	const std::vector<Employee*>& getSubordinates();
 	Report* getDailyReport();
-	SprintReport* getSprintReport();
+	SprintDraft* getSprintDraft();
 	std::vector<size_t> getAllSubordinatesID();
 };

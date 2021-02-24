@@ -1,11 +1,13 @@
 #pragma once
-#include "Employee.h"
+#include "TeamleadWrapper.h"
 
 class EmployeeList {
-	Employee* leader = nullptr;
+	TeamleadWrapper teamlead;
 
 	static Employee* getEmployee(size_t ID, Employee* cur);
 	static Employee* getEmployee(std::string name, Employee* cur);
+
+	void setTeamlead(Employee* newTeamlead);
 
 	void print(Employee* cur, int space);
 public:
@@ -14,6 +16,7 @@ public:
 
 	Employee* getEmployee(size_t ID);
 	Employee* getEmployee(std::string name);
+	TeamleadWrapper& getTeamlead();
 
 	void print();
 };
