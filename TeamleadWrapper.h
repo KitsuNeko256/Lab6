@@ -5,14 +5,15 @@
 
 class TeamleadWrapper {
     Employee *teamlead = nullptr;
-    SprintReport *sprintReport;
+    SprintReport *sprintReport = nullptr;
 
 public:
+
     Employee *getEmployee();
 
     void setEmployee(Employee *newTeamlead);
 
-    void startNewSprintSprint();
+    void startNewSprintReport();
 
     SprintReport *getSprintReport();
 };

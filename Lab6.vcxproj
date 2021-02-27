@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="EmployeeList.cpp" />
     <ClCompile Include="General.cpp" />
@@ -151,9 +152,24 @@
     <ClCompile Include="TaskList.cpp" />
     <ClCompile Include="TeamleadWrapper.cpp" />
     <ClCompile Include="TimedPost.cpp" />
-    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="views\AddEmployeeView.cpp" />
+    <ClCompile Include="views\AddTaskView.cpp" />
+    <ClCompile Include="views\ChangeManagerMenuView.cpp" />
+    <ClCompile Include="views\ChangeTaskView.cpp" />
+    <ClCompile Include="views\ChangeUserView.cpp" />
+    <ClCompile Include="views\DailyReportView.cpp" />
+    <ClCompile Include="views\EmployeesView.cpp" />
+    <ClCompile Include="views\FilteringTasksView.cpp" />
+    <ClCompile Include="views\MainMenuView.cpp" />
+    <ClCompile Include="views\ReportMenuView.cpp" />
+    <ClCompile Include="views\SprintDraftView.cpp" />
+    <ClCompile Include="views\SprintReportView.cpp" />
+    <ClCompile Include="views\SubmittedReportsView.cpp" />
+    <ClCompile Include="views\TaskMenuView.cpp" />
+    <ClCompile Include="views\TaskView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Controller.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="EmployeeList.h" />
     <ClInclude Include="General.h" />
@@ -165,7 +181,21 @@
     <ClInclude Include="TaskList.h" />
     <ClInclude Include="TeamleadWrapper.h" />
     <ClInclude Include="TimedPost.h" />
-    <ClInclude Include="UI.h" />
+    <ClInclude Include="views\AddEmployeeView.h" />
+    <ClInclude Include="views\AddTaskView.h" />
+    <ClInclude Include="views\ChangeManagerMenuView.h" />
+    <ClInclude Include="views\ChangeTaskView.h" />
+    <ClInclude Include="views\ChangeUserView.h" />
+    <ClInclude Include="views\DailyReportView.h" />
+    <ClInclude Include="views\EmployeesView.h" />
+    <ClInclude Include="views\FilteringTasksView.h" />
+    <ClInclude Include="views\MainMenuView.h" />
+    <ClInclude Include="views\ReportMenuView.h" />
+    <ClInclude Include="views\SprintDraftView.h" />
+    <ClInclude Include="views\SprintReportView.h" />
+    <ClInclude Include="views\SubmittedReportsView.h" />
+    <ClInclude Include="views\TaskMenuView.h" />
+    <ClInclude Include="views\TaskView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

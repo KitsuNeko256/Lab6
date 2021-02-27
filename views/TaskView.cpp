@@ -1,6 +1,6 @@
 #include "TaskView.h"
 #include <iostream>
-#include <General.h>
+#include "..\General.h"
 
 int TaskView::getTaskId() {
     std::string input;

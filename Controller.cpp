@@ -218,23 +218,23 @@ void Controller::sprintDraft() {
     Employee *employee = employeeList->getEmployee(userId);
     SprintDraft *report = employee->getSprintDraft();
 
-    sprintReportView->showMenu();
-    std::string command = sprintReportView->getMenuCommand();
+    sprintDraftView->showMenu();
+    std::string command = sprintDraftView->getMenuCommand();
 
     if (command == "1") {
-        report->addText(sprintReportView->getText());
+        report->addText(sprintDraftView->getText());
     } else if (command == "2") {
-        sprintReportView->showReportInfo(report);
+        sprintDraftView->showReportInfo(report);
     } else if (command == "3") {
-        const std::vector<SprintDraft *> &subordinateReports = employee->getSprintDraft()->getSubordinateReports();
+        const std::vector<SprintDraft *> &subordinateReports = report->getSubordinateReports();
         for (size_t i = subordinateReports.size(); i > 0; --i) {
             SprintDraft *subordinatesReport = subordinateReports[i - 1];
-            sprintReportView->showSubordinatesReport(subordinatesReport);
-            sprintReportView->showSubordinatesMenu();
+            sprintDraftView->showSubordinatesReport(subordinatesReport);
+            sprintDraftView->showSubordinatesMenu();
 
-            command = sprintReportView->getSubordinatesCommand();
+            command = sprintDraftView->getSubordinatesCommand();
             if (command == "1") {
-                sprintReportView->showReportText(subordinatesReport);
+                sprintDraftView->showReportText(subordinatesReport);
 
             } else if (command == "2") {
                 continue;
@@ -243,7 +243,7 @@ void Controller::sprintDraft() {
             }
         }
     } else if (command == "4") {
-        reportList->addSprintReport(report);
+        employeeList->getTeamlead().getSprintReport()->addSubordinateReport(report);
         Employee *manager = employee->getManager();
         if (manager != nullptr)
             manager->getSprintDraft()->addSubordinateReport(report);
@@ -280,11 +280,10 @@ void Controller::submittedReports() {
             SprintDraft *sprintReport = reports[i - 1];
             submittedReportsView->showSprintReport(sprintReport);
             submittedReportsView->showSpringReportMenu();
-            command = submittedReportsView->getSpringReportMenuCommand();
+            command = submittedReportsView->getSprintReportMenuCommand();
 
             if (command == "1") {
                 submittedReportsView->showSprintReportText(sprintReport);
-
             } else if (command == "2") {
                 continue;
             } else if (command == "3") {
@@ -294,6 +293,51 @@ void Controller::submittedReports() {
     }
 }
 
+void Controller::sprintReport() {
+    TeamleadWrapper& teamlead = employeeList->getTeamlead();
+
+    if (userId != teamlead.getEmployee()->getId()) {
+        sprintReportView->showTeamleadError();
+
+        return;
+    }
+    
+    SprintReport* report = teamlead.getSprintReport();
+
+    sprintReportView->showMenu();
+    std::string command = sprintReportView->getMenuCommand();
+
+    if (command == "1") {
+        report->addText(sprintReportView->getText());
+    }
+    else if (command == "2") {
+        sprintReportView->showReportInfo(report);
+    }
+    else if (command == "3") {
+        const std::vector<SprintDraft*>& subordinateReports = report->getSubordinateReports();
+        for (size_t i = subordinateReports.size(); i > 0; --i) {
+            SprintDraft* subordinatesReport = subordinateReports[i - 1];
+            sprintReportView->showSubordinatesReport(subordinatesReport);
+            sprintReportView->showSubordinatesMenu();
+
+            command = sprintReportView->getSubordinatesCommand();
+            if (command == "1") {
+                sprintReportView->showReportText(subordinatesReport);
+            }
+            else if (command == "2") {
+                continue;
+            }
+            else if (command == "3") {
+                return;
+            }
+        }
+    }
+    else if (command == "4") {
+        reportList->addSprintReport(report);
+        teamlead.startNewSprintReport();
+    }
+}
+    
 void Controller::reportMenu() {
     if (userId == -1) {
         reportMenuView->showGuestsError();
@@ -311,6 +355,8 @@ void Controller::reportMenu() {
             sprintDraft();
         else if (command == "3")
             submittedReports();
+        else if (command == "4")
+            sprintReport();
         else if (command == "e")
             return;
     }
@@ -341,8 +387,9 @@ Controller::Controller(EmployeeList *_employeeList, TaskList *_taskList, ReportL
     this->filteringTaskView = new FilteringTasksView();
     this->taskMenuView = new TaskMenuView();
     this->dailyReportView = new DailyReportView();
-    this->sprintReportView = new SprintReportView();
+    this->sprintDraftView = new SprintDraftView();
     this->submittedReportsView = new SubmittedReportsView();
+    this->sprintReportView = new SprintReportView();
     this->reportMenuView = new ReportMenuView();
     this->changeUserView = new ChangeUserView();
     this->mainMenuView = new MainMenuView();

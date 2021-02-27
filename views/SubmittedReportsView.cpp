@@ -13,7 +13,7 @@ std::string SubmittedReportsView::getReportMenuCommand() {
     return input;
 }
 
-std::string SubmittedReportsView::getSpringReportMenuCommand() {
+std::string SubmittedReportsView::getSprintReportMenuCommand() {
     std::string input;
     getline(std::cin, input);
     return input;

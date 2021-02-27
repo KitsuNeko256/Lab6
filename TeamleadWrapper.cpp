@@ -8,7 +8,7 @@ void TeamleadWrapper::setEmployee(Employee *newTeamlead) {
     teamlead = newTeamlead;
 }
 
-void TeamleadWrapper::startNewSprintSprint() {
+void TeamleadWrapper::startNewSprintReport() {
     sprintReport = new SprintReport(teamlead->getId());
 }
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <Task.h>
+#include "..\Task.h"
 
 class FilteringTasksView {
     enum class PrintType {

@@ -1,8 +1,8 @@
 #pragma once
 
-#include <Report.h>
-#include <SprintReport.h>
-#include "string"
+#include "..\Report.h"
+#include "..\SprintReport.h"
+#include <string>
 
 class SprintReportView {
 public:
@@ -21,4 +21,6 @@ public:
     void showSubordinatesMenu();
 
     void showReportText(SprintDraft *subordinatesReport);
+
+    void showTeamleadError();
 };

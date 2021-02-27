@@ -1,6 +1,6 @@
 #include "FilteringTasksView.h"
+#include "..\General.h"
 #include <iostream>
-#include <General.h>
 
 std::string FilteringTasksView::getMenuCommand() {
     std::string input;

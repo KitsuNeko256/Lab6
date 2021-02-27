@@ -1,7 +1,7 @@
 #pragma once
 
-#include <Report.h>
-#include "string"
+#include "..\Report.h"
+#include <string>
 
 class DailyReportView {
 public:

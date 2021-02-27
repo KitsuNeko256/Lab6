@@ -1,5 +1,6 @@
 #include "ChangeUserView.h"
 #include <iostream>
+#include <string>
 
 int ChangeUserView::getUserId() {
     std::string input;

@@ -24,6 +24,8 @@ Employee *EmployeeList::getEmployee(std::string name, Employee *cur) {
 
 void EmployeeList::setTeamlead(Employee *newTeamlead) {
     teamlead.setEmployee(newTeamlead);
+    if (teamlead.getSprintReport() == nullptr)
+        teamlead.startNewSprintReport();
 }
 
 bool EmployeeList::addEmployee(size_t Id, std::string name, int managerId) {

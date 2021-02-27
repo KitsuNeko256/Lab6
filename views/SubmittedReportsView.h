@@ -1,8 +1,8 @@
 #pragma once
 
-#include <Report.h>
-#include <SprintReport.h>
-#include "string"
+#include "..\Report.h"
+#include "..\SprintReport.h"
+#include <string>
 
 class SubmittedReportsView {
 public:
@@ -10,7 +10,7 @@ public:
 
     std::string getReportMenuCommand();
 
-    std::string getSpringReportMenuCommand();
+    std::string getSprintReportMenuCommand();
 
     void showMenu();
 
