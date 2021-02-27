@@ -1,19 +1,23 @@
 #pragma once
+
 #include <string>
 #include <vector>
 
 class Report {
-	size_t authorID;
-	std::string text;
-	std::vector<size_t> resolvedTasks;
+    size_t authorId;
+    std::string text;
+    std::vector<size_t> resolvedTasks;
 
 public:
-	Report(size_t _authorID);
-	
-	void addText(std::string newText);
-	void addTask(size_t taskID);
+    Report(size_t _authorId);
 
-	size_t getAuthorID();
-	std::string getText();
-	const std::vector<size_t>& getTasks();
+    void addText(std::string newText);
+
+    void addTask(size_t taskId);
+
+    size_t getAuthorId();
+
+    std::string getText();
+
+    const std::vector<size_t> &getTasks();
 };

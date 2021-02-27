@@ -1,14 +1,17 @@
 #pragma once
+
 #include "SprintDraft.h"
 
 class ReportList {
-	std::vector<Report*> dailyReports;
-	std::vector<SprintDraft*> sprintReports;
+    std::vector<Report *> dailyReports;
+    std::vector<SprintDraft *> sprintReports;
 public:
 
-	void addDailyReport(Report* report);
-	void addSprintReport(SprintDraft* report);
+    void addDailyReport(Report *report);
 
-	const std::vector<Report*>& getDailyReports();
-	const std::vector<SprintDraft*>& getSprintReports();
+    void addSprintReport(SprintDraft *report);
+
+    const std::vector<Report *> &getDailyReports();
+
+    const std::vector<SprintDraft *> &getSprintReports();
 };

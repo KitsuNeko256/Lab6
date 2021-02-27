@@ -1,14 +1,17 @@
 #include "TeamleadWrapper.h"
 
-Employee* TeamleadWrapper::getEmployee() {
-	return teamlead;
+Employee *TeamleadWrapper::getEmployee() {
+    return teamlead;
 }
-void TeamleadWrapper::setEmployee(Employee* newTeamlead) {
-	teamlead = newTeamlead;
+
+void TeamleadWrapper::setEmployee(Employee *newTeamlead) {
+    teamlead = newTeamlead;
 }
+
 void TeamleadWrapper::startNewSprintSprint() {
-	sprintReport = new SprintReport(teamlead->getID());
+    sprintReport = new SprintReport(teamlead->getId());
 }
-SprintReport* TeamleadWrapper::getSprintReport() {
-	return sprintReport;
+
+SprintReport *TeamleadWrapper::getSprintReport() {
+    return sprintReport;
 }
